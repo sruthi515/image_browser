@@ -1,0 +1,23 @@
+/* Image Listing Styling */
+
+.container {
+  max-width: 800px;
+}
+
+.list_wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+}
+
+.image_placeholder {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.no_data {
+  height: 200px;
+  width: 700px;
+  text-align: end;
+}
