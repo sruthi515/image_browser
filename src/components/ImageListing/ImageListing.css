@@ -5,19 +5,31 @@
 }
 
 .list_wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  display: flex;
+  height: 16rem;
+  overflow: auto;
+}
+
+.image_wrapper {
+  & > .delete_btn {
+    display: none;
+  }
+  &:hover {
+    .delete_btn {
+      display: block;
+    }
+  }
 }
 
 .image_placeholder {
   width: 200px;
   height: 200px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .no_data {
   height: 200px;
   width: 700px;
-  text-align: end;
+  text-align: center;
 }

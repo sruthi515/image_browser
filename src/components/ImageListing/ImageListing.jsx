@@ -1,6 +1,6 @@
 import "./ImageListing.css";
 
-const ImageListing = ({ images = [], handleImageClick }) => {
+const ImageListing = ({ images = [], handleImageClick, handleDelete }) => {
   return (
     <div className="container">
       {images.length === 0 ? (
@@ -8,8 +8,18 @@ const ImageListing = ({ images = [], handleImageClick }) => {
       ) : (
         <div className="list_wrapper">
           {images.map((image) => (
-            <div key={image} onClick={() => handleImageClick(image)}>
+            <div
+              key={image}
+              onClick={() => handleImageClick(image)}
+              className="image_wrapper"
+            >
               <img src={image} alt={image} className="image_placeholder" />
+              <button
+                onClick={() => handleDelete(image)}
+                className="delete_btn"
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

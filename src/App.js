@@ -23,6 +23,11 @@ const App = () => {
     setPreviewImage(url);
   };
 
+  const handleDelete = (url) => {
+    const filteredList = images.filter((img) => img !== url);
+    setImages(filteredList);
+  };
+
   return (
     <div className="App">
       <h1>Image Browser</h1>
@@ -36,8 +41,14 @@ const App = () => {
         <button onClick={handleImportImage}>Import Image</button>
       </div>
       <div className="image_container">
-        <ImageListing images={images} handleImageClick={handleImageClick} />
-        <ImagePreview previewImage={previewImage} list={images.length} />
+        <ImageListing
+          images={images}
+          handleImageClick={handleImageClick}
+          handleDelete={handleDelete}
+        />
+        {!!images.length && (
+          <ImagePreview previewImage={previewImage} list={images.length} />
+        )}
       </div>
     </div>
   );
